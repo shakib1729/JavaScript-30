@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+
+<script>
+
+const pressed = [];
+const secretCode = 'shakib';
+
+	window.addEventListener('keyup', e => {
+		pressed.push(e.key);  // go to the 6th element , proceed backwards and remove the excess letters
+		pressed.splice(-secretCode.length-1, pressed.length-secretCode.length); // to remove excess letters
+		console.log(pressed);
+		if(pressed.join('').includes(secretCode)){
+			console.log('DING DING');
+			cornify_add();
+
+		}
+	})
+
+
+</script>
+
+</body>
+</html>
